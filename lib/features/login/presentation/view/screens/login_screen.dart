@@ -7,7 +7,7 @@ import 'package:medic_app/core/theming/app_style.dart';
 import '../../../../../core/widgets/custom_elevated_button.dart';
 import '../../../data/model/login_request_body.dart';
 import '../../view_model/login_cubit.dart';
-import '../widgets/already_have_an_account_text.dart';
+import '../widgets/dont_have_account_text.dart';
 import '../widgets/email_and_password.dart';
 import '../widgets/login_bloc_listener.dart';
 import '../widgets/term_and_conditions_text.dart';
@@ -60,7 +60,7 @@ class LoginScreen extends StatelessWidget {
                     verticalSpace(16),
                     TermAndConditionsText(),
                     verticalSpace(60),
-                    AlreadyHaveAnAccountText(),
+                    DontHaveAccountText(),
                     LoginBlocListener(),
                   ],
                 ),
@@ -74,12 +74,7 @@ class LoginScreen extends StatelessWidget {
 
   void validateThenDoLogin(BuildContext context) {
     if (context.read<LoginCubit>().formKey.currentState!.validate()) {
-      context.read<LoginCubit>().emitLoginStates(
-            LoginRequestBody(
-              email: context.read<LoginCubit>().emailController.text,
-              password: context.read<LoginCubit>().passwordController.text,
-            ),
-          );
+      context.read<LoginCubit>().emitLoginStates();
     }
   }
 }

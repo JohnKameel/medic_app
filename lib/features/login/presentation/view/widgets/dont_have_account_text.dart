@@ -1,8 +1,12 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:medic_app/core/theming/app_style.dart';
 
-class AlreadyHaveAnAccountText extends StatelessWidget {
-  const AlreadyHaveAnAccountText({super.key});
+import '../../../../../core/routing/router_app.dart';
+
+class DontHaveAccountText extends StatelessWidget {
+  const DontHaveAccountText({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,12 +15,16 @@ class AlreadyHaveAnAccountText extends StatelessWidget {
       text: TextSpan(
         children: [
           TextSpan(
-            text: 'Already have an account? ',
+            text: 'Don\'t have an account? ',
             style: AppStyle.font13DarkBlueRegular,
           ),
           TextSpan(
             text: 'Sign Up',
             style: AppStyle.font13BlueSemiBold,
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                context.push(RouterApp.signup);
+              },
           ),
         ],
       ),
