@@ -51,7 +51,7 @@ dependencies:
   retrofit_generator: ^9.3.0
   pretty_dio_logger: ^1.4.0
   # localization
-  easy_localization: ^3.0.7+1
+  easy_localization: ^3.0.3
   # For splash screen
   flutter_native_splash: ^2.4.4
   # An SVG rendering library for Flutter
