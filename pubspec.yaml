@@ -28,44 +28,29 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  cached_network_image: ^3.4.1
+  cupertino_icons: ^1.0.8
+  dio: ^5.8.0+1
+  easy_localization: ^3.0.7+1
+  firebase_core: ^3.15.1
   flutter:
     sdk: flutter
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.8
-  # State management
   flutter_bloc: ^9.1.1
-  # Code generator (mainly used with cubit and retrofit)
+  flutter_native_splash: ^2.4.4
+  flutter_screenutil: ^5.9.3
+  flutter_svg: ^2.2.0
   freezed: ^3.0.6
   freezed_annotation: ^3.1.0
-  # for dependency_injection
   get_it: ^8.0.3
-  # Annotations for json serialization code generator
-  json_annotation: ^4.9.0
-  # For making http requests
-  dio: ^5.8.0+1
-  # A Dio client generator For making http requests with Retrofit
-  retrofit: ^4.5.0
-  # retrofit generator
-  retrofit_generator: ^9.3.0
-  pretty_dio_logger: ^1.4.0
-  # localization
-  intl: ^0.19.0
-  easy_localization: ^3.0.7+1
-  # For splash screen
-  flutter_native_splash: ^2.4.4
-  # An SVG rendering library for Flutter
-  flutter_svg: ^2.2.0
-  # for adapting screen size
-  flutter_screenutil: ^5.9.3
-  # for navigation
   go_router: ^16.0.0
-  firebase_core: ^3.15.1
+  intl: ^0.19.0
+  json_annotation: ^4.9.0
+  pretty_dio_logger: ^1.4.0
+  retrofit: ^4.5.0
+  retrofit_generator: ^9.3.0
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
+  build_runner: ^2.4.15
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -73,12 +58,12 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
+  flutter_test:
+    sdk: flutter
   json_serializable: ^6.9.5
-  build_runner: ^2.4.15
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter packages.
 flutter:
 
@@ -91,13 +76,10 @@ flutter:
   assets:
     - assets/images/
     - assets/svgs/
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
-
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/to/asset-from-package
-
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
