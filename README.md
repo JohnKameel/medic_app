@@ -1,16 +1,87 @@
-# medic_app
+# 📱 Doc Doc App
 
-A new Flutter project.
+Welcome to **Doc Doc App** — a modular, scalable Flutter application built with MVVM, feature-first structure, and modern tooling like `get_it`, `Dio`, and `Cubit`.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🧠 System Design
 
-A few resources to get you started if this is your first Flutter project:
+```
+lib/
+├── core/
+│   ├── DI (get_it)
+│   ├── Networking (Dio + Retrofit)
+│   ├── Routing
+│   ├── SharedPref
+│   ├── Helpers
+│   ├── Theming
+│   └── Widgets
+│
+├── features/
+│   ├── home/
+│   │   ├── data/
+│   │   │   ├── models
+│   │   │   └── repo
+│   │   │
+│   │   └── presentation/
+│   │       ├── view/
+│   │       │   ├── screens
+│   │       │   └── widgets
+│   │       │
+│   │       └── view_model/
+│   │           └── cubit
+│   │
+│   ├── login/
+│   ├── onboarding/
+│   └── sign_up/
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🧩 Module Breakdown
+
+### 🔹 core/
+
+Shared and reusable logic across the app:
+
+* **DI**: Dependency injection setup using `get_it`
+* **Networking**: API integration using `Dio` and `Retrofit`
+* **Routing**: Routing using `go_router`
+* **SharedPref**: Local storage with `shared_preferences` and `flutter_secure_storage`
+* **Helpers**: Utility methods and extensions
+* **Theming**: Theme and style management
+* **Widgets**: Reusable shared widgets
+
+### 🔹 features/
+
+Feature-first modular structure:
+
+* **home/**: Full-feature structure with:
+
+  * `data/`: Models and repository
+  * `presentation/`:
+
+    * `view/`: Screens and UI widgets
+    * `view_model/`: State management via `Cubit`
+* **login/**, **onboarding/**, **sign\_up/**: Auth flow features following the same scalable structure as `home`
+
+---
+
+## 🚀 Tech Stack
+
+* **Flutter**
+* **Cubit (Bloc library)**
+* **Dio + Retrofit** (network layer)
+* **get\_it** (dependency injection)
+* **shared\_preferences** (local storage)
+* **Testing and CI setup** (FastLane - Github Actions - Firebase App Distribution)
+
+---
+
+## 📂 Coming Soon
+
+* Feature modules for Profile, Settings, Appointments, and more
+
+---
+
+Happy coding with **Doc Doc App**! 💙
