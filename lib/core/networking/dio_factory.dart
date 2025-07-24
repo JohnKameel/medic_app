@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:medic_app/core/helper/constants.dart';
+import 'package:medic_app/core/helper/shared_pref_helper.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class DioFactory {
@@ -22,12 +24,16 @@ class DioFactory {
     }
   }
 
-  static void addDioHeaders() {
+  static void addDioHeaders() async {
     dio?.options.headers = {
       'Accept': 'application/json',
       'Authorization':
-          'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3ZjYXJlLmludGVncmF0aW9uMjUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzUyOTMzMDQzLCJleHAiOjE3NTMwMTk0NDMsIm5iZiI6MTc1MjkzMzA0MywianRpIjoiNnZjelAwMlloUlEzQzY4ZSIsInN1YiI6IjQ0MDQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.If6cDsfumYMR__qD49Bvr6elIOvtlphfGbP8b-NBNS4'
+          'Bearer ${await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken)}'
     };
+  }
+
+  static void setTokenInToHeaderAfterLogin(String token) async {
+    dio?.options.headers = {'Authorization': 'Bearer $token'};
   }
 
   static void addDioInterceptors() {
