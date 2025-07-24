@@ -1,13 +1,14 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:medic_app/core/di/dependency_injection.dart';
 import 'package:medic_app/features/home/presentation/view/screens/home_screen.dart';
+import 'package:medic_app/features/home/presentation/view_model/home_cubit.dart';
 import 'package:medic_app/features/login/presentation/view/screens/login_screen.dart';
 import 'package:medic_app/features/login/presentation/view_model/login_cubit.dart';
 import 'package:medic_app/features/onboarding/presentation/view/screens/onboarding_screen.dart';
 import 'package:medic_app/features/sign_up/presentation/view/screens/sign_up_screen.dart';
 import 'package:medic_app/features/sign_up/presentation/view_model/sign_up_cubit.dart';
+import '../helper/constants.dart';
 
 class RouterApp {
   static const String onBoarding = '/onboarding';
@@ -16,7 +17,7 @@ class RouterApp {
   static const String home = '/home';
 
   static GoRouter goRoute = GoRouter(
-    initialLocation: onBoarding,
+    initialLocation: isLoggedInUser ? home : onBoarding,
     routes: [
       GoRoute(
         path: onBoarding,
@@ -28,23 +29,26 @@ class RouterApp {
         path: login,
         builder: (context, state) {
           return BlocProvider(
-              create: (context) => getIt<LoginCubit>(),
-              child: const LoginScreen()
+            create: (context) => getIt<LoginCubit>(),
+            child: const LoginScreen(),
           );
         },
       ),
       GoRoute(
         path: home,
         builder: (context, state) {
-          return const HomeScreen();
+          return BlocProvider(
+            create: (context) => getIt<HomeCubit>()..getSpecializations(),
+            child: const HomeScreen(),
+          );
         },
       ),
       GoRoute(
         path: signup,
         builder: (context, state) {
           return BlocProvider(
-              create: (context) => getIt<SignupCubit>(),
-              child: const SignUpScreen()
+            create: (context) => getIt<SignupCubit>(),
+            child: const SignUpScreen(),
           );
         },
       ),
